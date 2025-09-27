@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UniQuery Analytics</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f7fa; color: #333; text-align: center; }
+    h1 { margin-top: 50px; }
+    form { margin: 30px auto; }
+    input[type="text"] {
+      width: 60%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px; border: none; border-radius: 5px;
+      background: #007bff; color: white; cursor: pointer;
+    }
+    button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+  <h1>🎓 UniQuery Analytics</h1>
+  <form action="/ask" method="post">
+    <input type="text" name="query" placeholder="Ask about universities, faculties, or research projects..." required>
+    <button type="submit">Ask from AI</button>
+  </form>
+</body>
+</html>
