@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 80%;
+      max-width: 900px;
+      padding: 30px;
+    }
+    h2 { color: #007bff; margin-top: 0; }
+    h3 { margin-top: 25px; color: #444; }
+    .error { color: red; font-weight: bold; }
+    pre {
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 15px;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #007bff;
+      color: white;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Your Question:</h2>
+    <p>{{ user_query }}</p>
+
+    {% if error %}
+      <p class="error">⚠️ {{ error }}</p>
+      {% if llm_output %}
+        <h3>LLM Output:</h3>
+        <pre>{{ llm_output }}</pre>
+      {% endif %}
+    {% else %}
+      <h3>Generated SQL:</h3>
+      <pre>{{ llm_output }}</pre>
+
+      <h3>Natural Answer:</h3>
+      <div>{{ formatted|safe }}</div>
+
+      <h3>Raw Table Results:</h3>
+      <table>
+        <tr>
+          {% for col in columns %}
+            <th>{{ col }}</th>
+          {% endfor %}
+        </tr>
+        {% for row in rows %}
+          <tr>
+            {% for cell in row %}
+              <td>{{ cell }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+
+    <a href="/">⬅ Back</a>
+  </div>
+</body>
+</html>
