@@ -74,12 +74,15 @@ GEMINI_API_KEY=your_gemini_api_key
 FLASK_SECRET_KEY=supersecretkey
 ```
 
-### 6. Run the Application
+### 6. Run the Xampp
+![Run the xampp](Demo/xampp.png)
+
+### 7. Run the Application
 ```bash
 python UniQuery.py
 ```
 
-### 7. Open in Browser
+### 8. Open in Browser
 ```
 http://127.0.0.1:5000
 ```
@@ -87,7 +90,13 @@ http://127.0.0.1:5000
 ---
 
 ## 📸 Demo
-👉 (Add screenshot or GIF of chatbot UI here)
+**User asking a question:**
+
+![Ask Example](Demo/Ask.png)
+
+**AI giving an answer:**
+
+![Answer Example](Demo/answer.png)
 
 ---
 
